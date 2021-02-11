@@ -41,7 +41,7 @@ class Tracker < ActiveRecord::Base
   validates_presence_of :default_status
   validates_presence_of :name
   validates_uniqueness_of :name
-  validates_length_of :name, :maximum => 30
+  validates_length_of :name, :maximum => 255
   validates_length_of :description, :maximum => 255
 
   scope :sorted, lambda {order(:position)}
