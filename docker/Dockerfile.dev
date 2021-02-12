@@ -1,0 +1,15 @@
+FROM ruby:2.4
+
+WORKDIR /usr/src/app
+COPY Gemfile ./
+COPY Gemfile.lock ./
+
+RUN gem install bundler
+
+COPY . .
+
+RUN bundle update
+RUN bundle install
+
+EXPOSE 3000
+CMD ["rails", "server", "-b", "0.0.0.0"]
